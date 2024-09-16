@@ -2,8 +2,16 @@ import { Link, NavLink } from "react-router-dom";
 import Search from "./Search";
 import { useState } from "react";
 import { BsFillMoonStarsFill, BsSunFill } from "react-icons/bs";
+import { FaBars, FaTimes } from "react-icons/fa";
 
 const Navbar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false); //state for toggle menu
+
+  // function for toggle menu
+  const toggleMobileMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   // TODO: will use react context here instead
   const [isDarkMode, setIsDarkMode] = useState(false);
   const toggleDarkMode = () => setIsDarkMode(!isDarkMode);
@@ -85,6 +93,17 @@ const Navbar = () => {
               )}
             </button>
           </div>
+        </div>
+
+        {/* mobile menu bar */}
+        <div className="md:hidden block">
+          <button onClick={toggleMobileMenu}>
+            {isMenuOpen ? (
+              <FaTimes className="size-6 text-gray-600" />
+            ) : (
+              <FaBars className="size-6 text-gray-600" />
+            )}
+          </button>
         </div>
       </div>
 
