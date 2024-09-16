@@ -108,7 +108,73 @@ const Navbar = () => {
       </div>
 
       {/* mobile menu items */}
-      <div className="hidden">Mobile menu items</div>
+      {isMenuOpen && (
+        <div className="md:hidden bg-white shadow-md">
+          <ul className="flex flex-col items-center space-y-4 text-gray-700 py-4">
+            <li onClick={toggleMobileMenu}>
+              <NavLink
+                to="/"
+                className={({ isActive }) =>
+                  isActive ? "text-secondary" : "hover:text-secondary"
+                }
+              >
+                Home
+              </NavLink>
+            </li>
+            <li onClick={toggleMobileMenu}>
+              <NavLink
+                to="/blogs"
+                className={({ isActive }) =>
+                  isActive ? "text-secondary" : "hover:text-secondary"
+                }
+              >
+                Blogs
+              </NavLink>
+            </li>
+            <li onClick={toggleMobileMenu}>
+              <NavLink
+                to="/about"
+                className={({ isActive }) =>
+                  isActive ? "text-secondary" : "hover:text-secondary"
+                }
+              >
+                About
+              </NavLink>
+            </li>
+            <li onClick={toggleMobileMenu}>
+              <NavLink
+                to="/contact"
+                className={({ isActive }) =>
+                  isActive ? "text-secondary" : "hover:text-secondary"
+                }
+              >
+                Contact
+              </NavLink>
+            </li>
+
+            {/* theme toggler */}
+            <div
+              className={`w-16 h-8 flex items-center bg-[#E8E8EA] rounded-full p-1 cursor-pointer transition-colors duration-300 ${
+                isDarkMode ? "justify-end" : "justify-start"
+              }`}
+            >
+              <button
+                onClick={toggleDarkMode}
+                className="w-6 h-6 bg-white rounded-full shadow-md flex items-center justify-center transition-transform duration-300"
+              >
+                {isDarkMode ? (
+                  <BsFillMoonStarsFill className="text-gray-500" />
+                ) : (
+                  <BsSunFill className="text-yellow-500" />
+                )}
+              </button>
+            </div>
+            
+            {/* search */}
+            <Search />
+          </ul>
+        </div>
+      )}
     </nav>
   );
 };
