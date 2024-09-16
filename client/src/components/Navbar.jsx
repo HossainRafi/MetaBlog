@@ -1,4 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
+import Search from "./Search";
 
 const Navbar = () => {
   return (
@@ -57,7 +58,12 @@ const Navbar = () => {
         </ul>
 
         {/* search and theme toggler */}
-        <div>search and theme</div>
+        <div className="md:flex hidden items-center space-x-4">
+          {/* search */}
+          <Search />
+
+          {/* theme toggler */}
+        </div>
       </div>
 
       {/* mobile menu items */}
