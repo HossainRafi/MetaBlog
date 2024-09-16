@@ -1,5 +1,6 @@
-import React from "react";
 import { Link } from "react-router-dom";
+import bannerImg from "../assets/blogs/blog-0.png";
+import authorImg from "../assets/author.png";
 
 const Banner = () => {
   return (
@@ -37,7 +38,32 @@ const Banner = () => {
         </ul>
       </div>
 
-      
+      {/* banner image */}
+      <div className="text-white">
+        <div
+          className="md:min-h-[450px] h-80 w-full bg-center bg-cover bg-no-repeat rounded-md"
+          style={{ backgroundImage: `url(${bannerImg})` }}
+        >
+          <div className="flex flex-col h-full justify-center items-center p-5">
+            <span className="bg-secondary text-center max-w-36 px-4 py-1 rounded-md mb-3">
+              Technology
+            </span>
+            <h2 className="sm:text-3xl text-2xl text-center font-semibold md:w-1/2 mb-5">
+              The Impact of Technology on the Workplace: How Technology is
+              Changing
+            </h2>
+            <div className="flex items-center gap-1">
+              <img src={authorImg} alt="" className="size-8" />
+              <div className="flex flex-wrap items-center space-x-4">
+                <span className="ml-2 text-base cursor-pointer hover:underline underline-offset-2">
+                  Tracey Wilson
+                </span>
+                <span className="text-sm italic">August 20, 2024</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
