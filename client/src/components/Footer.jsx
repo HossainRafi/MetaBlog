@@ -1,4 +1,4 @@
-
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -25,10 +25,68 @@ const Footer = () => {
           </div>
 
           {/* quick links */}
-          <div>links</div>
+          <div className="md:pl-16">
+            <h3 className="text-lg font-semibold mb-4">Quick Link</h3>
+            <ul className="space-y-2">
+              <li>
+                <Link to="/home" className="hover:text-secondary">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link to="/about" className="hover:text-secondary">
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link to="/blogs" className="hover:text-secondary">
+                  Blogs
+                </Link>
+              </li>
+              <li>
+                <Link to="/" className="hover:text-secondary">
+                  Author
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact" className="hover:text-secondary">
+                  Contact
+                </Link>
+              </li>
+            </ul>
+          </div>
 
           {/*  category */}
-          <div>category</div>
+          <div>
+            <h3 className="text-lg font-semibold mb-4">Category</h3>
+            <ul className="space-y-2">
+              <li>
+                <Link to="/" className="hover:text-secondary">
+                  Lifestyle
+                </Link>
+              </li>
+              <li>
+                <Link to="/" className="hover:text-secondary">
+                  Technology
+                </Link>
+              </li>
+              <li>
+                <Link to="/" className="hover:text-secondary">
+                  Travel
+                </Link>
+              </li>
+              <li>
+                <Link to="/" className="hover:text-secondary">
+                  Business
+                </Link>
+              </li>
+              <li>
+                <Link to="/" className="hover:text-secondary">
+                  Economy
+                </Link>
+              </li>
+            </ul>
+          </div>
 
           {/* newsletter */}
           <div>newsletter</div>
