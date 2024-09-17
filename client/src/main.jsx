@@ -10,6 +10,7 @@ import Contact from "./pages/contact/Contact";
 import AddBlog from "./pages/blogs/addBlog/AddBlog";
 import ManageBlogs from "./pages/blogs/manageBlog/ManageBlogs";
 import UpdateBlog from "./pages/blogs/manageBlog/UpdateBlog";
+import BlogDetails from './pages/blogs/BlogDetails';
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,7 @@ const router = createBrowserRouter([
     children: [
       { path: "/", element: <Home /> },
       { path: "/blogs", element: <Blogs /> },
+      { path: "/blogs/:id", element: <BlogDetails /> },
       { path: "/add-blog", element: <AddBlog /> },
       { path: "/manage-blog", element: <ManageBlogs /> },
       { path: "/blogs/edit/:id", element: <UpdateBlog /> },
