@@ -1,6 +1,7 @@
 import NewsLetter from "./../home/NewsLetter";
 import bannerImage_1 from "../../assets/mission-banner-1.jpg";
 import bannerImage_2 from "../../assets/mission-banner-2.jpg";
+import teamMember from "../../assets/team-member.jpg";
 
 const About = () => {
   return (
@@ -38,7 +39,6 @@ const About = () => {
           <div>
             <img
               src={bannerImage_1}
-              alt=""
               className="w-full md:h-96 rounded-lg shadow-lg hover:scale-95 transition-all duration-200"
             />
           </div>
@@ -64,14 +64,53 @@ const About = () => {
           <div className="order-2 md:order-1">
             <img
               src={bannerImage_2}
-              alt=""
               className="w-full md:h-96 rounded-lg shadow-lg hover:scale-95 transition-all duration-200"
             />
           </div>
         </div>
 
         {/* team section */}
-        <div>team</div>
+        <div>
+          <h2 className="text-3xl font-semibold text-center mb-12">
+            Meet Our Team
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="bg-white p-6 rounded-lg shadow-lg text-center hover:scale-95 transition-all duration-200 cursor-pointer">
+              <img
+                src={teamMember}
+                className="w-32 h-32 rounded-full mx-auto mb-4"
+              />
+              <h3 className="text-xl text-gray-700">John Doe</h3>
+              <p className="text-gray-500">CEO</p>
+            </div>
+            <div className="bg-white p-6 rounded-lg shadow-lg text-center hover:scale-95 transition-all duration-200 cursor-pointer">
+              <img
+                src={teamMember}
+                className="w-32 h-32 rounded-full mx-auto mb-4"
+              />
+              <h3 className="text-xl text-gray-700">John Doe</h3>
+              <p className="text-gray-500">CEO</p>
+            </div>
+            <div className="bg-white p-6 rounded-lg shadow-lg text-center hover:scale-95 transition-all duration-200 cursor-pointer">
+              <img
+                src={teamMember}
+                className="w-32 h-32 rounded-full mx-auto mb-4"
+              />
+              <h3 className="text-xl text-gray-700">John Doe</h3>
+              <p className="text-gray-500">CEO</p>
+            </div>
+            <div className="bg-white p-6 rounded-lg shadow-lg text-center hover:scale-95 transition-all duration-200 cursor-pointer">
+              <img
+                src={teamMember}
+                className="w-32 h-32 rounded-full mx-auto mb-4"
+              />
+              <h3 className="text-xl text-gray-700">John Doe</h3>
+              <p className="text-gray-500">CEO</p>
+            </div>
+          </div>
+        </div>
+
+        <NewsLetter />
       </div>
     </section>
   );
