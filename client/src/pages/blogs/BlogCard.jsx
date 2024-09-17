@@ -29,6 +29,16 @@ const BlogCard = ({ blog }) => {
             alt=""
             className="size-10 rounded-full mr-3"
           />
+          <div>
+            <p className="text-sm text-gray-600">{blog.author.name}</p>
+            <p className="text-xs text-gray-400">
+              {blog?.date ? (
+                <span>{new Date(blog.date).toLocaleDateString()}</span>
+              ) : (
+                <span>{new Date(blog.createdAt).toLocaleDateString()}</span>
+              )}
+            </p>
+          </div>
         </div>
       </div>
     </div>
