@@ -29,7 +29,77 @@ const Contact = () => {
           </div>
 
           {/* form section */}
-          <div>form</div>
+          <div>
+            <form className="bg-white p-6 rounded-lg shadow-md">
+              <div className="mb-4">
+                <label
+                  htmlFor="name"
+                  className="block text-gray-700 text-sm font-bold mb-2"
+                >
+                  Name
+                </label>
+                <input
+                  type="text"
+                  placeholder="Your name"
+                  name="name"
+                  id="name"
+                  className="w-full px-4 py-2 border rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
+              <div className="mb-4">
+                <label
+                  htmlFor="email"
+                  className="block text-gray-700 text-sm font-bold mb-2"
+                >
+                  Email
+                </label>
+                <input
+                  type="text"
+                  placeholder="Your email"
+                  name="email"
+                  id="email"
+                  className="w-full px-4 py-2 border rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
+              <div className="mb-4">
+                <label
+                  htmlFor="number"
+                  className="block text-gray-700 text-sm font-bold mb-2"
+                >
+                  Phone Number
+                </label>
+                <input
+                  type="text"
+                  placeholder="Your phone number"
+                  name="number"
+                  id="number"
+                  className="w-full px-4 py-2 border rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
+              <div className="mb-4">
+                <label
+                  htmlFor="message"
+                  className="block text-gray-700 text-sm font-bold mb-2"
+                >
+                  Message
+                </label>
+                <textarea
+                  rows="4"
+                  className="w-full px-4 py-2 border rounded-lg text-gray-700 focus:outline-none resize-none focus:ring-2 focus:ring-blue-500"
+                  placeholder="Enter message"
+                ></textarea>
+              </div>
+
+              <div>
+                <button
+                  type="submit"
+                  className="w-full bg-secondary text-white py-2 px-4 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+                >
+                  Send Message
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </section>
