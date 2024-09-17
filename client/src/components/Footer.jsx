@@ -16,7 +16,7 @@ const Footer = () => {
 
             <div className="mt-5">
               <p className="text-base">
-                <strong>Email:</strong> info@meta.net
+                <strong>Email:</strong> example@meta.net
               </p>
               <p className="text-base">
                 <strong>Phone:</strong> 880 123 456 789
@@ -89,7 +89,27 @@ const Footer = () => {
           </div>
 
           {/* newsletter */}
-          <div>newsletter</div>
+          <div className="bg-white hidden sm:block">
+            <div className="px-6 py-6 text-center">
+              <h3 className="text-lg font-semibold mb-4">Weekly Newsletter</h3>
+              <p className="text-gray-500 text-sm mb-2">
+                Get blog articles and offers via email
+              </p>
+              <form className="space-y-2">
+                <input
+                  type="email"
+                  placeholder="Your Email"
+                  className="bg-gray-100 text-white rounded-lg py-2 px-4 w-full focus:outline-none"
+                />
+                <button
+                  type="submit"
+                  className="bg-secondary text-white rounded-lg py-2 px-4 w-full"
+                >
+                  Subscribe
+                </button>
+              </form>
+            </div>
+          </div>
         </div>
       </div>
     </footer>
