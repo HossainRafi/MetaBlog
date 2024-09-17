@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import BlogCard from "./BlogCard";
 
 const BlogList = () => {
-  const [searchTerm] = useState("css"); //TODO: wil use blog context
+  const [searchTerm] = useState(""); //TODO: wil use blog context
   const [blogs, setBlogs] = useState([]);
   const [showBlogs, setShowBlogs] = useState(6);
 
@@ -28,12 +28,22 @@ const BlogList = () => {
   return (
     <div className="container mx-auto">
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-        {filteredBlogs.map((blog, index) => (
+        {filteredBlogs.slice(0, showBlogs).map((blog, index) => (
           <BlogCard key={index} blog={blog} />
         ))}
       </div>
 
       {/* load more blogs button */}
+      {showBlogs < filteredBlogs.length && (
+        <div className="flex justify-center items-center mt-8 mb-5">
+          <button
+            onClick={handleMoreBlog}
+            className="bg-secondary rounded-md text-white hover:bg-secondary/80 font-semibold flex items-center justify-center px-6 py-2 gap-1 transition-colors duration-200"
+          >
+            View More
+          </button>
+        </div>
+      )}
     </div>
   );
 };
