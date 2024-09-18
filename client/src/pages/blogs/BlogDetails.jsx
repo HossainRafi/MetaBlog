@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import authorImg from "../../assets/authors/author-1.png";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import Loading from "../../components/Loading";
 
 const BlogDetails = () => {
   const { id } = useParams();
@@ -23,7 +24,7 @@ const BlogDetails = () => {
     window.scrollTo(0, 0);
   }, [id]);
 
-  if (isLoading) return "Loading...............";
+  if (isLoading) return <Loading />;
 
   console.log(blog);
 
