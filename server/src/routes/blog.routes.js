@@ -2,7 +2,6 @@ const express = require("express");
 const router = express.Router();
 const Blog = require("../models/blog.model");
 
-
 // get all blogs
 router.get("/", async (req, res) => {
   try {
@@ -29,8 +28,6 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-
-
 // post a new blog
 router.post("/add-post", async (req, res) => {
   try {
@@ -42,7 +39,24 @@ router.post("/add-post", async (req, res) => {
     console.error("Error posting a new blog", error);
     res.status(500).send({ message: "Error posting a new blog", error });
   }
-  
+});
+
+// delete a blog
+router.delete("/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const deletedBlog = await Blog.findByIdAndDelete(id);
+    if (!deletedBlog) {
+      return res.status(404).send({ message: "No blog found" });
+    }
+
+    res
+      .status(200)
+      .send({ message: "Blog deleted successfully", blog: deletedBlog });
+  } catch (error) {
+    console.error("Error deleting a blog", error);
+    res.status(500).send({ message: "Error deleting a blog", error });
+  }
 });
 
 module.exports = router;
