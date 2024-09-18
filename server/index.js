@@ -1,11 +1,22 @@
 const express = require("express");
 const app = express();
-const port = 5000;
+require("dotenv").config();
+const mongoose = require("mongoose");
+const port = process.env.PORT || 5000;
 
-app.get("/", (req, res) => {
-  res.send("Hello World!");
-});
+// mongoose configuration & database connection
+async function main() {
+  await mongoose.connect(process.env.DB_URL);
+
+  app.get("/", (req, res) => {
+    res.send("Meta Blog Server Is Running............!");
+  });
+}
+
+main()
+  .then(() => console.log("MongoDB connected successfully........!"))
+  .catch((err) => console.log(err));
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+  console.log(`Server is running on port ${port}`);
 });
