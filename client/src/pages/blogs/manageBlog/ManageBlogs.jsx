@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
+import  axios  from "axios";
 
 const ManageBlogs = () => {
   const [blogs, setBlogs] = useState([]);
@@ -11,7 +13,23 @@ const ManageBlogs = () => {
       .catch((error) => console.error("Error fetching blog data: " + error));
   }, []);
 
-  console.log(blogs);
+  const handleDelete = async (id) => {
+    if (window.confirm("Are you sure you want to delete")) {
+      try {
+        await axios.delete(`http://localhost:5000/blogs/${id}`);
+        setBlogs(blogs.filter((blog) => blog._id !== id));
+        Swal.fire({
+          icon: "success",
+          title: "Blog deleted successfully !!",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      } catch (error) {
+        console.log("Error deleting blog: " + error);
+      }
+    }
+  };
+
   return (
     <section className="container max-w-7xl mx-auto px-4 py-24">
       <h2 className="text-3xl font-bold text-center mb-8">Manage Blogs</h2>
@@ -72,7 +90,9 @@ const ManageBlogs = () => {
                       Edit
                     </Link>
                     <Link className="bg-red-500 text-white px-2 py-1 hover:bg-red-600 rounded-md">
-                      <button>Delete</button>
+                      <button onClick={() => handleDelete(blog?._id)}>
+                        Delete
+                      </button>
                     </Link>
                   </td>
                 </tr>
