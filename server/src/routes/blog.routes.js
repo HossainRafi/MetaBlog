@@ -14,6 +14,20 @@ router.get("/", async (req, res) => {
   }
 });
 
+// get a single blog by id
+router.get("/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const blog = await Blog.findById(id);
+    if (!blog) {
+      return res.status(404).send({ message: "No blog found" });
+    }
+    res.status(200).send({ message: "Blog is fetched successfully", blog });
+  } catch (error) {
+    console.error("Error fetching a blog by id", error);
+    res.status(500).send({ message: "Error fetching a blog by id", error });
+  }
+});
 
 
 
