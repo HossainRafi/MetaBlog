@@ -2,14 +2,14 @@ import { useEffect, useState } from "react";
 import BlogCard from "./BlogCard";
 
 const BlogList = () => {
-  const [searchTerm] = useState(""); //TODO: wil use blog context
+  const [searchTerm] = useState(""); //TODO: will use blog context
   const [blogs, setBlogs] = useState([]);
   const [showBlogs, setShowBlogs] = useState(6);
 
   useEffect(() => {
-    fetch("blogs.json")
+    fetch("http://localhost:5000/blogs")
       .then((response) => response.json())
-      .then((data) => setBlogs(data))
+      .then((data) => setBlogs(data.blogs))
       .catch((error) => console.error("Error:", error));
   }, []);
 
