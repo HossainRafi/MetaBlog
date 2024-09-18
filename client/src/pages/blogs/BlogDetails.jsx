@@ -33,7 +33,11 @@ const BlogDetails = () => {
       <div>
         <h2 className="text-3xl font-bold mb-4">{blog?.title}</h2>
         <div className="flex items-center mb-4">
-          <img src={authorImg} alt="" className="w-10 h-10 rounded-full mr-3" />
+          <img
+            src={blog?.author?.image}
+            alt=""
+            className="w-10 h-10 rounded-full mr-3"
+          />
           <div>
             <p className="text-lg font-medium">{blog?.author?.name}</p>
             <p className="text-gray-500">

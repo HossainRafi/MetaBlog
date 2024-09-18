@@ -1,14 +1,17 @@
+import React from "react";
+import InputField from "./InputField";
 import TextAreaField from "./TextAreaField";
 import { useForm } from "react-hook-form";
-import InputField from "./InputField";
+import axios from "axios";
 
 const AddBlog = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm();
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     const blogData = {
       title: data.title,
       description: data.description,
@@ -19,12 +22,23 @@ const AddBlog = () => {
       },
     };
 
-    console.log(blogData);
+    try {
+      const response = await axios.post(
+        `http://localhost:5000/blogs/add-post`,
+        blogData
+      );
+      if (response.status === 200) {
+        alert("Blog added successfully");
+        reset();
+      }
+    } catch (error) {
+      console.log("Error posting a new blog", error);
+    }
   };
 
   return (
     <div className="container max-w-7xl mx-auto px-4 py-24">
-      <h2 className="text-3xl font-bold text-center mb-8">Add New Blog</h2>
+      <h2 className="text-3xl font-bold text-center mb-6">Add A New Blog</h2>
 
       {/* form */}
       <div>
@@ -33,16 +47,16 @@ const AddBlog = () => {
           className="bg-white max-w-3xl mx-auto p-6 rounded-lg shadow-md space-y-8"
         >
           <InputField
-            label="Blog Title:"
+            label="Blog Title"
             id="title"
             type="text"
             register={register("title", { required: true })}
             placeholder="Blog Title"
           />
 
-          {/* text-are */}
+          {/* text-area */}
           <TextAreaField
-            label="Blog Description:"
+            label="Blog Description"
             id="description"
             type="text"
             register={register("description", { required: true })}
@@ -50,21 +64,21 @@ const AddBlog = () => {
           />
 
           <InputField
-            label="Author Name:"
+            label="Author Name"
             id="authorName"
             type="text"
             placeholder="Author Name"
             register={register("authorName", { required: true })}
           />
           <InputField
-            label="Author Image URL:"
+            label="Author Image URL"
             id="authorImage"
             type="url"
             register={register("authorImage", { required: true })}
             placeholder="Author Image URL"
           />
           <InputField
-            label="Thumbnail Image URL:"
+            label="Thumbnail Image URL"
             id="image"
             type="url"
             register={register("image", { required: true })}
