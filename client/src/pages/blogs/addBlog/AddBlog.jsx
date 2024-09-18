@@ -2,6 +2,7 @@ import React from "react";
 import InputField from "./InputField";
 import TextAreaField from "./TextAreaField";
 import { useForm } from "react-hook-form";
+import Swal from "sweetalert2";
 import axios from "axios";
 
 const AddBlog = () => {
@@ -28,7 +29,12 @@ const AddBlog = () => {
         blogData
       );
       if (response.status === 200) {
-        alert("Blog added successfully");
+        Swal.fire({
+          icon: "success",
+          title: "Blog posted successfully !!",
+          showConfirmButton: false,
+          timer: 1500,
+        });
         reset();
       }
     } catch (error) {
