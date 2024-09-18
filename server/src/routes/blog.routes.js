@@ -54,8 +54,27 @@ router.delete("/:id", async (req, res) => {
       .status(200)
       .send({ message: "Blog deleted successfully", blog: deletedBlog });
   } catch (error) {
-    console.error("Error deleting a blog", error);
-    res.status(500).send({ message: "Error deleting a blog", error });
+    console.error("Error deleting blog", error);
+    res.status(500).send({ message: "Error deleting blog", error });
+  }
+});
+
+// update a blog
+router.put("/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const updatedBlog = await Blog.findByIdAndUpdate(id, req.body, {
+      new: true,
+    });
+    if (!updatedBlog) {
+      return res.status(404).send({ message: "No blog found" });
+    }
+    res
+      .status(200)
+      .send({ message: "Blog updated successfully", blog: updatedBlog });
+  } catch (error) {
+    console.error("Error updating blog", error);
+    res.status(500).send({ message: "Error updating blog", error });
   }
 });
 
