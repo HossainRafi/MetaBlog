@@ -1,16 +1,29 @@
 import { Link } from "react-router-dom";
 import bannerImg from "../assets/blogs/blog-0.png";
 import authorImg from "../assets/author.png";
+import { motion } from "framer-motion";
 
 const Banner = () => {
   return (
     <div className="my-16">
       <div className="text-center mb-8">
         {/* banner heading */}
-        <h1 className="text-4xl font-semibold mb-4">Meta Blog</h1>
+        <motion.h1
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.7 }}
+          className="text-4xl font-semibold mb-4"
+        >
+          Meta Blog
+        </motion.h1>
 
         {/* add and manage blog button */}
-        <ul className="flex flex-wrap items-center justify-center gap-4">
+        <motion.ul
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1 }}
+          className="flex flex-wrap items-center justify-center gap-4"
+        >
           <li>
             <Link
               to="/"
@@ -35,11 +48,16 @@ const Banner = () => {
               Manage Blog
             </Link>
           </li>
-        </ul>
+        </motion.ul>
       </div>
 
       {/* banner image */}
-      <div className="text-white">
+      <motion.div
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1.3 }}
+        className="text-white"
+      >
         <div
           className="md:min-h-[450px] h-80 w-full bg-center bg-cover bg-no-repeat rounded-md"
           style={{ backgroundImage: `url(${bannerImg})` }}
@@ -63,7 +81,7 @@ const Banner = () => {
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };
