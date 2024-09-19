@@ -1,14 +1,43 @@
+import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import InputField from "../addBlog/InputField";
 import TextAreaField from "../addBlog/TextAreaField";
+import { useNavigate, useParams } from "react-router-dom";
+import axios from "axios";
+import Swal from "sweetalert2";
 
 const UpdateBlog = () => {
+  const { id } = useParams();
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
+    reset,
+    setValue,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => {
+
+  useEffect(() => {
+    const fetchSingleBlog = async () => {
+      try {
+        const response = await axios.get(`http://localhost:5000/blogs/${id}`);
+        // console.log(response.data.blog)
+        const blog = response.data.blog;
+
+        setValue("title", blog?.title);
+        setValue("description", blog?.description);
+        setValue("authorName", blog?.author?.name);
+        setValue("authorImage", blog?.author?.image);
+        setValue("image", blog?.image);
+      } catch (error) {
+        console.log("Failed to fetch single blog", error);
+      }
+    };
+
+    fetchSingleBlog();
+  }, [id]);
+
+  const onSubmit = async (data) => {
     const blogData = {
       title: data.title,
       description: data.description,
@@ -19,14 +48,32 @@ const UpdateBlog = () => {
       },
     };
 
-    console.log(blogData);
+    try {
+      const response = await axios.put(
+        `http://localhost:5000/blogs/${id}`,
+        blogData
+      );
+      console.log(response.status);
+      if (response.status === 200) {
+        Swal.fire({
+          icon: "success",
+          title: "Blog updated successfully !!",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        reset();
+        navigate("/");
+      }
+    } catch (error) {
+      console.log("Failed to update blog data", error);
+    }
   };
   return (
-    <div className="container max-w-7xl mx-auto px-4 py-24">
+    <div className="container max-w-7xl mx-auto px-4 py-16">
       <h2 className="text-3xl text-center font-bold mb-6">Update Blog</h2>
 
       {/* form */}
-      <div>
+      <div className="mt-14">
         <form
           onSubmit={handleSubmit(onSubmit)}
           className="bg-white max-w-3xl mx-auto p-6 rounded-lg shadow-md space-y-8"
@@ -63,11 +110,11 @@ const UpdateBlog = () => {
             placeholder="Author Image URL"
           />
           <InputField
-            label="Thumbnail Image URL"
+            label="Thumbnail Image URL:"
             id="image"
             type="url"
             register={register("image", { required: true })}
-            placeholder="Blog Image URL"
+            placeholder="Thumbnail Image URL"
           />
 
           <div>
