@@ -1,11 +1,13 @@
 import { Link, NavLink } from "react-router-dom";
 import Search from "./Search";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { BsFillMoonStarsFill, BsSunFill } from "react-icons/bs";
 import { FaBars, FaTimes } from "react-icons/fa";
+import { ThemeContext } from "../context/ThemeContext";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false); //state for toggle menu
+  const { darkMode, setDarkMode } = useContext(ThemeContext);
 
   // function for toggle menu
   const toggleMobileMenu = () => {
@@ -169,7 +171,7 @@ const Navbar = () => {
                 )}
               </button>
             </div>
-            
+
             {/* search */}
             <Search />
           </ul>
