@@ -14,10 +14,6 @@ const Navbar = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  // TODO: will use react context here instead
-  const [isDarkMode, setIsDarkMode] = useState(false);
-  const toggleDarkMode = () => setIsDarkMode(!isDarkMode);
-
   return (
     <nav className="bg-white shadow-md">
       {/* desktop menu and mobile menu button */}
@@ -80,15 +76,15 @@ const Navbar = () => {
 
           {/* theme toggler */}
           <div
-            className={`w-16 h-8 flex items-center bg-[#E8E8EA] rounded-full p-1 cursor-pointer transition-colors duration-300 ${
-              isDarkMode ? "justify-end" : "justify-start"
+            className={`w-12 h-8 flex items-center bg-[#E8E8EA] rounded-full p-1 cursor-pointer transition-colors duration-300 ${
+              darkMode ? "justify-end" : "justify-start"
             }`}
           >
             <button
-              onClick={toggleDarkMode}
+              onClick={() => setDarkMode((darkMode) => !darkMode)}
               className="w-6 h-6 bg-white rounded-full shadow-md flex items-center justify-center transition-transform duration-300"
             >
-              {isDarkMode ? (
+              {darkMode ? (
                 <BsFillMoonStarsFill className="text-gray-500" />
               ) : (
                 <BsSunFill className="text-yellow-500" />
@@ -156,15 +152,15 @@ const Navbar = () => {
 
             {/* theme toggler */}
             <div
-              className={`w-16 h-8 flex items-center bg-[#E8E8EA] rounded-full p-1 cursor-pointer transition-colors duration-300 ${
-                isDarkMode ? "justify-end" : "justify-start"
+              className={`w-12 h-8 flex items-center bg-[#E8E8EA] rounded-full p-1 cursor-pointer transition-colors duration-300 ${
+                darkMode ? "justify-end" : "justify-start"
               }`}
             >
               <button
-                onClick={toggleDarkMode}
+                onClick={() => setDarkMode((darkMode) => !darkMode)}
                 className="w-6 h-6 bg-white rounded-full shadow-md flex items-center justify-center transition-transform duration-300"
               >
-                {isDarkMode ? (
+                {darkMode ? (
                   <BsFillMoonStarsFill className="text-gray-500" />
                 ) : (
                   <BsSunFill className="text-yellow-500" />

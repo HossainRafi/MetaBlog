@@ -6,12 +6,12 @@ import { ThemeContext } from "./context/ThemeContext";
 import { useState } from "react";
 
 function App() {
-  const [darkMode, setDarkMode] = useState(true);
+  const [darkMode, setDarkMode] = useState(false);
   return (
     <>
       <ThemeContext.Provider value={{ darkMode, setDarkMode }}>
         <Navbar />
-        <main className="min-h-screen">
+        <main className={`min-h-screen ${darkMode ? "dark" : ""}`}>
           <Outlet />
         </main>
         <Footer />
