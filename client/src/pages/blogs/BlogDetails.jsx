@@ -26,8 +26,6 @@ const BlogDetails = () => {
 
   if (isLoading) return <Loading />;
 
-  console.log(blog);
-
   return (
     <div className="container max-w-7xl mx-auto px-4 py-8">
       <div>

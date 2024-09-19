@@ -21,7 +21,6 @@ const UpdateBlog = () => {
     const fetchSingleBlog = async () => {
       try {
         const response = await axios.get(`http://localhost:5000/blogs/${id}`);
-        // console.log(response.data.blog)
         const blog = response.data.blog;
 
         setValue("title", blog?.title);
@@ -35,7 +34,7 @@ const UpdateBlog = () => {
     };
 
     fetchSingleBlog();
-  }, [id]);
+  }, []);
 
   const onSubmit = async (data) => {
     const blogData = {
@@ -53,7 +52,7 @@ const UpdateBlog = () => {
         `http://localhost:5000/blogs/${id}`,
         blogData
       );
-      console.log(response.status);
+      
       if (response.status === 200) {
         Swal.fire({
           icon: "success",
