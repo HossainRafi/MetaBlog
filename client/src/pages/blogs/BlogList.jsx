@@ -8,7 +8,7 @@ const BlogList = () => {
   const [showBlogs, setShowBlogs] = useState(6);
 
   useEffect(() => {
-    fetch("http://localhost:5000/blogs")
+    fetch("https://metablog-backend.vercel.app/blogs")
       .then((response) => response.json())
       .then((data) => setBlogs(data.blogs))
       .catch((error) => console.error("Error:", error));

@@ -29,7 +29,7 @@ const AddBlog = () => {
 
     try {
       const response = await axios.post(
-        `http://localhost:5000/blogs/add-post`,
+        `https://metablog-backend.vercel.app/blogs/add-post`,
         blogData
       );
       if (response.status === 200) {

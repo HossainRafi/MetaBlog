@@ -20,7 +20,9 @@ const UpdateBlog = () => {
   useEffect(() => {
     const fetchSingleBlog = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/blogs/${id}`);
+        const response = await axios.get(
+          `https://metablog-backend.vercel.app/blogs/${id}`
+        );
         const blog = response.data.blog;
 
         setValue("title", blog?.title);
@@ -49,10 +51,10 @@ const UpdateBlog = () => {
 
     try {
       const response = await axios.put(
-        `http://localhost:5000/blogs/${id}`,
+        `https://metablog-backend.vercel.app/blogs/${id}`,
         blogData
       );
-      
+
       if (response.status === 200) {
         Swal.fire({
           icon: "success",

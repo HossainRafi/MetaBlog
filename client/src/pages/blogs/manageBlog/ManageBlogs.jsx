@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
-import  axios  from "axios";
+import axios from "axios";
 
 const ManageBlogs = () => {
   const [blogs, setBlogs] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/blogs")
+    fetch("https://metablog-backend.vercel.app/blogs")
       .then((response) => response.json())
       .then((data) => setBlogs(data.blogs))
       .catch((error) => console.error("Error fetching blog data: " + error));
@@ -16,7 +16,7 @@ const ManageBlogs = () => {
   const handleDelete = async (id) => {
     if (window.confirm("Are you sure you want to delete")) {
       try {
-        await axios.delete(`http://localhost:5000/blogs/${id}`);
+        await axios.delete(`https://metablog-backend.vercel.app/blogs/${id}`);
         setBlogs(blogs.filter((blog) => blog._id !== id));
         Swal.fire({
           icon: "success",
