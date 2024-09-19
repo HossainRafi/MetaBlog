@@ -4,14 +4,18 @@ import TextAreaField from "./TextAreaField";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const AddBlog = () => {
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
     formState: { errors },
     reset,
   } = useForm();
+
+  // handle blog data upload
   const onSubmit = async (data) => {
     const blogData = {
       title: data.title,
@@ -36,6 +40,7 @@ const AddBlog = () => {
           timer: 1500,
         });
         reset();
+        navigate("/");
       }
     } catch (error) {
       console.log("Error posting a new blog", error);
