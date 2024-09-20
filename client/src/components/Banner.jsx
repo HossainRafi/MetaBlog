@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import bannerImg from "../assets/blogs/blog-0.png";
+import bannerImg from "../assets/banner.png";
 import authorImg from "../assets/author.png";
 import { motion } from "framer-motion";
 

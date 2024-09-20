@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import authorImg from "../../assets/authors/author-1.png";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import Loading from "../../components/Loading";
