@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import bannerImg from "../assets/banner.png";
 import authorImg from "../assets/author.png";
 import { motion } from "framer-motion";
@@ -6,7 +5,7 @@ import { motion } from "framer-motion";
 const Banner = () => {
   return (
     <div className="my-16">
-      <div className="text-center mb-8">
+      <div className="text-center mb-20">
         {/* banner heading */}
         <motion.h1
           initial={{ opacity: 0, scale: 0.5 }}
@@ -16,39 +15,6 @@ const Banner = () => {
         >
           Meta Blog
         </motion.h1>
-
-        {/* add and manage blog button */}
-        <motion.ul
-          initial={{ opacity: 0, scale: 0.5 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1 }}
-          className="flex flex-wrap items-center justify-center gap-4"
-        >
-          <li>
-            <Link
-              to="/"
-              className="bg-secondary/10 px-2.5 py-1 rounded-full hover:text-secondary"
-            >
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/add-blog"
-              className="bg-secondary/10 px-2.5 py-1 rounded-full hover:text-secondary"
-            >
-              Add New Blog
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/manage-blog"
-              className="bg-secondary/10 px-2.5 py-1 rounded-full hover:text-secondary"
-            >
-              Manage Blog
-            </Link>
-          </li>
-        </motion.ul>
       </div>
 
       {/* banner image */}

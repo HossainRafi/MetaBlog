@@ -47,6 +47,26 @@ const Navbar = () => {
               Blogs
             </NavLink>
           </li>
+          <li onClick={toggleMobileMenu}>
+            <NavLink
+              to="/add-blog"
+              className={({ isActive }) =>
+                isActive ? "text-secondary" : "hover:text-secondary"
+              }
+            >
+              Add Blog
+            </NavLink>
+          </li>
+          <li onClick={toggleMobileMenu}>
+            <NavLink
+              to="/manage-blog"
+              className={({ isActive }) =>
+                isActive ? "text-secondary" : "hover:text-secondary"
+              }
+            >
+              Manage Blog
+            </NavLink>
+          </li>
           <li>
             <NavLink
               to="/about"
@@ -127,6 +147,26 @@ const Navbar = () => {
                 }
               >
                 Blogs
+              </NavLink>
+            </li>
+            <li onClick={toggleMobileMenu}>
+              <NavLink
+                to="/add-blog"
+                className={({ isActive }) =>
+                  isActive ? "text-secondary" : "hover:text-secondary"
+                }
+              >
+                Add Blog
+              </NavLink>
+            </li>
+            <li onClick={toggleMobileMenu}>
+              <NavLink
+                to="/manage-blog"
+                className={({ isActive }) =>
+                  isActive ? "text-secondary" : "hover:text-secondary"
+                }
+              >
+                Manage Blog
               </NavLink>
             </li>
             <li onClick={toggleMobileMenu}>
