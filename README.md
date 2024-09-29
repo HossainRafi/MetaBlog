@@ -31,8 +31,6 @@
 
 
 #### Thumbmail Image Links:
-- https://i.ibb.co.com/5vW82WB/m.png
-- https://i.ibb.co.com/FsPnqSW/n.jpg
 - https://i.ibb.co.com/SK2291R/a.jpg
 - https://i.ibb.co.com/WKzXJSL/b.jpg
 - https://i.ibb.co.com/F5Dn2hN/c.png
@@ -40,11 +38,6 @@
 - https://i.ibb.co.com/Kr6qKgL/e.jpg
 - https://i.ibb.co.com/JxY2WFk/f.jpg
 - https://i.ibb.co.com/G9QRxCm/g.jpg
-- https://i.ibb.co.com/h73JkZF/h.jpg
-- https://i.ibb.co.com/pvbcC1n/i.jpg
-- https://i.ibb.co.com/v1SRq5d/j.jpg
-- https://i.ibb.co.com/HDHhtZk/k.jpg
-- https://i.ibb.co.com/4F8zHdr/l.jpg
 
 #### Authors Image Links:
 - https://i.ibb.co.com/tx3Xt5g/a.jpg
